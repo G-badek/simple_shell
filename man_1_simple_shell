@@ -1,0 +1,79 @@
+.TH man simple_shell "17 August 2021" "1.0" "Simple Shell man page"
+.SH NAME
+.B shell - command interpreter
+
+.SH SYNOPSIS
+.B ./hsh
+
+.SS Syntax
+The shell works by using commands given by the user input. The shell commands take in the following syntax:
+
+.B #cisfun$
+.I <command> <flags or options> <argument 1> <argument 2> ...
+
+.SH DESCRIPTION
+
+This is a simple UNIX command interpreter. Simple_shell is an sh-compatible command language interpreter that executes commands read from the standard input or from a file.
+
+.SS Overview
+A Unix shell is a command-line interpreter or shell that provides a command line user interface for Unix-like operating systems. The shell is both an interactive command language and a scripting language, and is used by the operating system to control the execution of the system using shell scripts.
+
+.SS Path search
+When type a command, the shell first looks to see if it has a builtin command with that name. If exist a coincidence in the PATH of the environment variable (env) with that name. Then append the command from the prompt to the PATH directory and return the entire path. If don't exist coincidence an error is displayed.
+
+.SH COMPILATION
+All files will be compiled with gcc flags
+
+gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+
+.SH RETURN VALUE
+will return zero (0), unless specified by an exit code.
+
+.SH EXAMPLE
+Here are a couple examples of how you can use the shell
+
+=========================================
+.SS Interactive Mode
+
+
+  $ ./hsh
+ ($) /bin/ls
+ hsh main.c shell.c
+ ($)
+ ($) exit
+  $
+=========================================
+
+.SS Non-interactive Mode
+
+
+  $ echo "/bin/ls" | ./hsh
+  hsh main.c shell.c test_ls_2
+  $
+  $ cat test_ls_2
+  /bin/ls
+  /bin/ls
+  $
+  $ cat test_ls_2 | ./hsh
+  hsh main.c shell.c test_ls_2
+  hsh main.c shell.c test_ls_2
+  $
+=========================================
+
+.SH NOTES
+- This project is based on the Unix shell for Holberton School
+
+.SH SEE ALSO
+.B SH(1)
+
+.SH BUGS
+No know bugs
+
+.SH AUTHORS
+
+Akinjibade Fortunate
+    akinjibadefortunate@gmail.com
+    https://github.com/G-badek
+
+
+Student from Holberton School
